@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import jsonwebtone, { TokenExpiredError } from "jsonwebtoken";
+import jsonwebtoken from "jsonwebtoken";
+const { TokenExpiredError } = jsonwebtoken;
 import bcrypt from "bcrypt";
 
 const userSchema = new mongoose.Schema(
