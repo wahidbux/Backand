@@ -20,7 +20,7 @@ const userSchema = new mongoose.Schema(
         lowercase: true,
         trim : true,
       },
-       Fullname:{
+       fullname:{
         type: String,
         required: true,
         trim : true,
@@ -61,7 +61,7 @@ userSchema.methods.isPasswordCorrect = async function(password){
 }
 
 userSchema.methods.generateAccessToken = function(){
-  return jwt.sign(
+  return jsonwebtoken.sign(
     {
     _id: this._id,
     email: this.email,
@@ -76,7 +76,7 @@ userSchema.methods.generateAccessToken = function(){
 }
 
 userSchema.methods.generateRefreshToken= function(){
-   return jwt.sign(
+   return jsonwebtoken.sign(
     {
     _id: this._id 
   },
